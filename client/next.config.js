@@ -5,4 +5,3 @@ module.exports = {
         includePaths: [path.join(__dirname, './pages')],
     },
 }
-    //https://inf.run/uuBg
