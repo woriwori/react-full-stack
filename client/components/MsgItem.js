@@ -1,9 +1,14 @@
 import React from 'react';
+import MsgInput from "./MsgInput";
 
 const MsgItem = ({
+    id,
     userId,
     timestamp,
-    text
+    text,
+    onUpdate,
+    isEditing,
+    startEdit
 }) => {
     return (
         <li className="messages__item">
@@ -20,7 +25,13 @@ const MsgItem = ({
                 })}
             </sub>
             </h3>
-            {text}
+            {
+                isEditing?
+                    <MsgInput mutate={onUpdate} id={id}/>
+                    :
+                    text
+            }
+            <div className='messages__buttons' onClick={startEdit}>수정</div>
         </li>
     );
 };

@@ -1,13 +1,13 @@
 import React, {useRef} from 'react';
 
-const MsgInput = ({mutate}) => {
+const MsgInput = ({mutate, id = null}) => {
     const textRef = useRef(null)
     const onSubmit = e => {
         e.preventDefault()
         e.stopPropagation()
         const text = textRef.current.value;
         textRef.current.value = '';
-        mutate(text)
+        mutate(text, id)
     }
     return (
         <form className="messages__input" onSubmit={onSubmit}>
