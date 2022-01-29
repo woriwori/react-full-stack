@@ -49,17 +49,25 @@ h1 {
       margin: 10px 0;
     }
     &:hover .messages__buttons {
-      display: block;
+      display: inline-block;
     }
     .messages__input {
       width: 100%;
     }
   }
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 25px;
+  ;
+  }
   &__buttons {
     display: none;
-    position: absolute;
     text-align: right;
-    right: 10px;
-    bottom: 10px;
+    margin-right: 3px;
+    &:last-child {
+      margin-right: 0;
+    }
   }
 }

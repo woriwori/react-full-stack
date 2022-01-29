@@ -1,6 +1,6 @@
 import React, {useRef} from 'react';
 
-const MsgInput = ({mutate, id = null}) => {
+const MsgInput = ({mutate, id = null, text=""}) => {
     const textRef = useRef(null)
     const onSubmit = e => {
         e.preventDefault()
@@ -13,7 +13,8 @@ const MsgInput = ({mutate, id = null}) => {
         <form className="messages__input" onSubmit={onSubmit}>
             <textarea
             ref={textRef}
-            placeholder="내용을 입력해주세요"/>
+            placeholder="내용을 입력해주세요"
+            defaultValue={text}/>
             <button type="submit">완료</button>
         </form>
     );

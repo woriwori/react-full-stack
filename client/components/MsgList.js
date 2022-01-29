@@ -38,12 +38,21 @@ const MsgList = () => {
         doneEdit()
     }
     const doneEdit = () => setEditingId(null)
+    const onDelete = (id) => {
+        setMsgs(msgs => {
+            const targetIndex = msgs.findIndex(msg => msg.id === id);
+            if(targetIndex < 0) return msgs;
+            const newMsgs = [...msgs]
+            newMsgs.splice(targetIndex, 1, )
+            return newMsgs
+        })
+    }
     return (
         <>
             <MsgInput mutate={onCreate}/>
             <ul className="messages">
                 {
-                    msgs.map((value,i) => <MsgItem key={i} onUpdate={onUpdate} startEdit={() => setEditingId(value.id)} isEditing={editingId === value.id} {...value}/>)
+                    msgs.map((value,i) => <MsgItem key={i} onUpdate={onUpdate} startEdit={() => setEditingId(value.id)} isEditing={editingId === value.id} onDelete={() => onDelete(value.id)} {...value}/>)
                 }
             </ul>
         </>
