@@ -4,7 +4,7 @@ import {resolve} from 'path';
 
 const basePath = resolve() // 현재 위치
 const filenames = {
-    message: resolve(basePath, 'src/db/messages.json'),
+    messages: resolve(basePath, 'src/db/messages.json'),
     users: resolve(basePath, 'src/db/users.json')
 }
 
