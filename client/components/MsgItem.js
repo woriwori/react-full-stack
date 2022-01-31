@@ -7,9 +7,10 @@ const MsgItem = ({
     timestamp,
     text,
     onUpdate,
-    isEditing,
+    onDelete,
     startEdit,
-    onDelete
+    isEditing,
+    currentUserId
 }) => {
     return (
         <li className="messages__item">
@@ -35,7 +36,7 @@ const MsgItem = ({
                 }
                 <div>
                     {
-                        !isEditing &&
+                        (userId === currentUserId) && !isEditing &&
                             <>
                                 <button className='messages__buttons' onClick={startEdit}>수정</button>
                                 <button className='messages__buttons' onClick={onDelete}>삭제</button>
