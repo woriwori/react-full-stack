@@ -11,5 +11,8 @@
   "scripts": {
     "client": "yarn workspace client start",
     "server": "yarn workspace client server"
+  },
+  "devDependencies": {
+    "prettier": "^2.5.1"
   }
 }
