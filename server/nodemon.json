@@ -1,6 +1,10 @@
 {
-  "match": ["src"],
-  "ignore": ["db/**/*"],
+  "match": [
+    "src"
+  ],
+  "ignore": [
+    "db/**/*"
+  ],
   "env": {
     "NODE_ENV": "development"
   }
