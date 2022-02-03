@@ -4,11 +4,11 @@ import MsgItem from './MsgItem';
 import MsgInput from './MsgInput';
 import fetcher from '../fetcher';
 
-const MsgList = () => {
+const MsgList = ({ smsgs, susers }) => {
   const {
     query: { userId = '' },
   } = useRouter();
-  const [msgs, setMsgs] = useState([]);
+  const [msgs, setMsgs] = useState(smsgs);
   const [editingId, setEditingId] = useState(null);
   const onCreate = async (text) => {
     const newMsg = await fetcher('post', '/messages', {
@@ -55,15 +55,15 @@ const MsgList = () => {
     });
   };
 
-  const getMessages = async () => {
-    const messages = await fetcher('get', '/messages');
-
-    setMsgs(messages);
-  };
-
-  useEffect(() => {
-    getMessages();
-  }, []);
+  // const getMessages = async () => {
+  //   const messages = await fetcher('get', '/messages');
+  //
+  //   setMsgs(messages);
+  // };
+  //
+  // useEffect(() => {
+  //   // getMessages();
+  // }, []);
 
   return (
     <>
@@ -77,6 +77,7 @@ const MsgList = () => {
             startEdit={() => setEditingId(msg.id)}
             isEditing={editingId === msg.id}
             currentUserId={userId}
+            user={susers[msg.userId]}
             {...msg}
           />
         ))}

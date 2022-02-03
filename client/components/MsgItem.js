@@ -3,7 +3,6 @@ import MsgInput from './MsgInput';
 
 const MsgItem = ({
   id,
-  userId,
   timestamp,
   text,
   onUpdate,
@@ -11,11 +10,12 @@ const MsgItem = ({
   startEdit,
   isEditing,
   currentUserId,
+  user,
 }) => {
   return (
     <li className="messages__item">
       <h3>
-        {userId}{' '}
+        {user.nickname}{' '}
         <sub>
           {new Date(timestamp).toLocaleString('ko-KR', {
             year: 'numeric',
@@ -30,7 +30,7 @@ const MsgItem = ({
       <div className="messages__content">
         {isEditing ? <MsgInput mutate={onUpdate} id={id} text={text} /> : text}
         <div>
-          {userId === currentUserId && !isEditing && (
+          {user.id === currentUserId && !isEditing && (
             <>
               <button className="messages__buttons" onClick={startEdit}>
                 수정
